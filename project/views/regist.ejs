@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <style>
+        #divcss1 {
+            margin-top: 20%;
+            margin-left: 30%;
+        }
+
+        #divcss2 {
+            margin-top: 15%;
+        }
+    </style>
+    <title>注册</title>
+    <%- include head %>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+            </div>
+            <div class="col-6">
+                <div id="divcss1"><img src="images/home.jpeg" alt=""></div>
+                <div id="divcss2">
+                    <form action="/users/regist" method="POST">
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" id="inputEmail3" name="useremail">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="inputPassword3" name="password">
+                            </div>
+                        </div>
+                        <fieldset class="form-group row">
+                            <legend class="col-form-label col-sm-2 float-sm-left pt-0">Identify</legend>
+                            <div class="col-sm-10">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1"
+                                        value="User">
+                                    <label class="form-check-label" for="gridRadios1">
+                                        User
+                                    </label>
+                                </div>
+                                <div class="form-check disabled">
+                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2"
+                                        value="Manager" disabled>
+                                    <label class="form-check-label" for="gridRadios2">
+                                        Manager
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <button type="submit" class="btn btn-primary">regist</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div>已有账号，<a href="/login">立即登录！</a></div>
+                </div>
+            </div>
+            <div class="col">
+            </div>
+        </div>
+</body>
+
+</html>

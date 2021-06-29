@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>详情</title>
+  <%- include head %>
+</head>
+
+<body>
+
+    <%- include('bar', {useremail:useremail})%>
+
+    <div class="detail">
+        <div class="title"><%=item.title%></div>
+        <div class="desc">
+            <span>作者：<%=item.useremail%></span>
+            <span>发布时间：<%=item.time%></span>
+        </div>
+        <div class="content"><%-item.content%></div>
+    </div>
+</body>
+</html>

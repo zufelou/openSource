@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>写文章</title>
+    <%- include head %>
+</head>
+
+<body>
+
+    <%- include('bar', {useremail:useremail})%>
+        <div class="container">
+            <div class="row">
+                <div class="col"></div>
+                <div class="col-11">
+                    <div class="article">
+                        <form action="/article/add" method="POST">
+                            <input type="hidden" name="id" value="<%- item.id %>">
+                            <input type="hidden" name="page" value="<%- item.page %>">
+                            <input type="text" name="title" placeholder="请输入文章标题" value="<%=item.title%>">
+                            <textarea name="content" class="xheditor"><%- item.content %></textarea>
+                            <% if(item.id){ %>
+                                <input type="submit" value="修改文章" style="float: right;">
+                                <% }else{ %>
+                                    <input type="submit" value="发布文章" style="float: right;">
+                                    <% } %>
+                                        <!-- <input type="submit" value="发布文章" style="float: right;"> -->
+                        </form>
+                    </div>
+                </div>
+                <div class="col"></div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="xheditor/jquery/jquery-1.4.4.min.js"></script>
+        <script type="text/javascript" src="xheditor/xheditor-1.2.2.min.js"></script>
+        <script type="text/javascript" src="xheditor/xheditor_lang/zh-cn.js"></script>
+        <script>
+            $('.xheditor').xheditor({
+                tools: 'full',
+                skin: 'default',
+                upImgUrl:'/article/upload',
+                html5Upload:false,
+                upMultiple:1
+            });
+        </script>
+</body>
+
+</html>

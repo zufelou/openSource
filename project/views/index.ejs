@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>首页</title>
+  <%- include head %>
+    <style>
+      #text-shenglue {
+        display: block;
+        word-break: keep-all;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        -icab-text-overflow: ellipsis;
+        -khtml-text-overflow: ellipsis;
+        -moz-text-overflow: ellipsis;
+        -webkit-text-overflow: ellipsis;
+      }
+    </style>
+</head>
+
+<body>
+
+  <%- include('bar', {useremail:useremail})%>
+
+    <div class="list">
+
+      <% data.list.map(function(item,index) { %>
+        <div class="row"><span>
+            <%= index+1 %>
+          </span>
+          <span title="<%= item.useremail %>" id="text-shenglue">
+            <%= item.useremail %>
+          </span>
+
+          <span>
+            <a href="/detail?id=<%= item.id%>">
+              <%= item.title %>
+            </a>
+          </span>
+          <span>
+            <%= item.time %>
+          </span>
+          <span>
+            <a href="/write?id=<%= item.id%>&page=<%=data.curPage%>">编辑</a>
+            <a href="/article/delete?id=<%= item.id%>&page=<%=data.curPage%>">删除</a>
+          </span>
+        </div>
+        <% }) %>
+
+          <div class="pages">
+            <% for(let i=1 ; i<=data.total ; i++){ %>
+              <a href="/?page=<%= i %>">
+                <%= i %>
+              </a>
+              <% } %>
+          </div>
+    </div>
+</body>
+
+</html>
